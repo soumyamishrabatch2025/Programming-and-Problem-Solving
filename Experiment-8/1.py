@@ -1,7 +1,3 @@
-# Type Content here...
-
-import numpy as np
-
 dim = int(input("dimension: "))
 
 array1 = []
@@ -15,11 +11,18 @@ print("second matrix:")
 for j in range(dim):
 	array2.append(list(map(int, input().split(" "))))
 
-array1 = np.array(array1)
-array2 = np.array(array2)
 
 print("Resultant Matrix:")
-prod = np.matmul(array1, array2)
+
+prod = []
+
+for i in range(dim):
+	prod.append([0 for a in range(dim)])
+
+for i in range(dim):
+	for j in range(dim):
+		for k in range(dim):
+			prod[i][j] += array1[i][k] * array2[k][j]
 
 for row in prod:
 	for index, value in enumerate(row):
